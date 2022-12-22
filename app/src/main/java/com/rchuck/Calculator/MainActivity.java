@@ -1,5 +1,6 @@
 package com.rchuck.Calculator;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         TextView txt_result;
         EditText edtHeightFt, edtHeightInch, edtWeight;
         Button btn_continue;
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LinearLayout Linear = findViewById(R.id.linear_background);
 
         edtHeightFt = findViewById(R.id.edtHeightFt);
         edtHeightInch = findViewById(R.id.edtHeightInch);
@@ -41,10 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
                 if(bmi > 25){
                     txt_result.setText("You are overweight");
+                    Linear.setBackgroundColor(getResources().getColor(R.color.overwt));
                 } else if(bmi<18){
                     txt_result.setText("You are underweight");
+                    Linear.setBackgroundColor(getResources().getColor(R.color.underwt));
                 } else{
                     txt_result.setText("You are healthy");
+                    Linear.setBackgroundColor(getResources().getColor(R.color.okwt));
                 }
             }
         });
