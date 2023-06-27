@@ -4,6 +4,7 @@ import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
@@ -12,12 +13,14 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen2)
+        Log.i("MYLOG", "SplashScreen started")
 
         //finish activity after 1.5 seconds ie. 1500ms
         object : CountDownTimer(1500, 100) {
             override fun onTick(millisUntilFinished: Long) {}
 
             override fun onFinish() {
+                Log.i("MYLOG", "SplashScreen ended")
                 finish()
             }
         }.start()

@@ -285,7 +285,7 @@
         tools:ignore="UselessLeaf">
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/buttonCalculate"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/bg"
