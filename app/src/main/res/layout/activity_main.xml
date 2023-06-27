@@ -16,6 +16,7 @@
         android:padding="30dp"
         android:text="@string/app_name"
         android:textAlignment="center"
+        android:textColor="@color/light_black"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -38,7 +39,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/ic_launcher_background">
 
                 <TextView
                     android:id="@+id/textViewAgeHeading"
@@ -46,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/karla_bold"
                     android:text="@string/age"
+                    android:textColor="@color/light_black"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/karla_regular"
                     android:text="@string/age_units"
+                    android:textColor="@color/light_black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +134,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/ic_launcher_background">
 
                 <TextView
                     android:id="@+id/textViewWeightHeading"
@@ -138,6 +143,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/karla_bold"
                     android:text="@string/weight"
+                    android:textColor="@color/light_black"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -174,6 +180,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/karla_regular"
                     android:text="@string/weight_unit"
+                    android:textColor="@color/light_black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -223,7 +230,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/ic_launcher_background">
 
             <TextView
                 android:id="@+id/textViewHeightHeading"
@@ -231,6 +239,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/karla_bold"
                 android:text="@string/height"
+                android:textColor="@color/light_black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -268,6 +277,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/karla_regular"
                 android:text="@string/height_unit"
+                android:textColor="@color/light_black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -297,8 +307,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:background="@color/ic_launcher_background"
             android:fontFamily="@font/karla_medium"
             android:text="@string/calculate_your_body_mass_index"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/light_black" />
     </LinearLayout>
 </LinearLayout>
