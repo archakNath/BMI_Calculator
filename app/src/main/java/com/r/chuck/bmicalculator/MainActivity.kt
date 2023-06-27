@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -38,11 +39,10 @@ class MainActivity : AppCompatActivity() {
         buttonAgeDecrease = findViewById(R.id.imageButtonAgeDecrease)
         buttonAgeIncrease = findViewById(R.id.imageButtonAgeIncrease)
 
-        var weight:Float
-        var height:Float
+        var weight: Float
+        var height: Float
         var bmi: Float
 
-        Log.i("MYLOG", "calling splash screen activity")
         //splash screen
         splashIntent = Intent(this, SplashScreen::class.java)
         startActivity(splashIntent)
@@ -50,33 +50,59 @@ class MainActivity : AppCompatActivity() {
         // change status bar color to #ffffff(white)
         setStatusBarColor(Color.parseColor("#ffffff"))
 
-        Log.i("MYLOG", "button on click listeners")
         //button on click listeners
         buttonCalculate.setOnClickListener {
-            if (editTextAge.text.toString() == ""){
+            if (editTextAge.text.toString() == "") {
                 editTextAge.error = "Enter your age!"
-            } else if(editTextWeight.text.toString() == ""){
+            } else if (editTextWeight.text.toString() == "") {
                 editTextWeight.error = "Enter your weight!"
-            } else if(editTextHeight.text.toString() == ""){
+            } else if (editTextHeight.text.toString() == "") {
                 editTextHeight.error = "Enter your height!"
             } else {
                 weight = editTextWeight.text.toString().toFloat()
-                height = editTextHeight.text.toString().toFloat()/100
-                bmi = weight/(height*height)
+                height = editTextHeight.text.toString().toFloat() / 100
+                bmi = weight / (height * height)
             }
         }
+        buttonAgeDecrease.setOnClickListener {
+            if (!TextUtils.isEmpty(editTextAge.text.toString()) && editTextAge.text.toString()
+                    .toInt() > 0
+            ) {
+                editTextAge.setText((editTextAge.text.toString().toInt() - 1).toString())
+            }
+        }
+        buttonAgeIncrease.setOnClickListener {
+            if (TextUtils.isEmpty(editTextAge.text.toString())) {
+                editTextAge.setText("0")
+            }
+            editTextAge.setText((editTextAge.text.toString().toInt() + 1).toString())
+        }
+        buttonWeightDecrease.setOnClickListener {
+            if (!TextUtils.isEmpty(editTextWeight.text.toString()) && editTextWeight.text.toString()
+                    .toInt() > 0
+            ) {
+                editTextWeight.setText((editTextWeight.text.toString().toInt() - 1).toString())
+            }
+        }
+        buttonWeightIncrease.setOnClickListener {
+            if (TextUtils.isEmpty(editTextWeight.text.toString())) {
+                editTextWeight.setText("0")
+            }
+            editTextWeight.setText((editTextWeight.text.toString().toInt() + 1).toString())
+        }
+
     }
 
 
     // status bar color update functions
     @Suppress("DEPRECATION")
-    private fun Activity.setStatusBarColor(color:Int){
+    private fun Activity.setStatusBarColor(color: Int) {
         var flags = window?.decorView?.systemUiVisibility // get current flag
         if (flags != null) {
-            if(isColorDark(color)){
+            if (isColorDark(color)) {
                 flags = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
                 window?.decorView?.systemUiVisibility = flags
-            }else{
+            } else {
                 flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                 window?.decorView?.systemUiVisibility = flags
             }
@@ -84,8 +110,10 @@ class MainActivity : AppCompatActivity() {
         window?.statusBarColor = color
     }
 
-    private fun Activity.isColorDark(color:Int) : Boolean{
-        val darkness = 1 - (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color)) / 255
+    private fun Activity.isColorDark(color: Int): Boolean {
+        val darkness =
+            1 - (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color)) / 255
         return darkness >= 0.5
     }
 }
+
