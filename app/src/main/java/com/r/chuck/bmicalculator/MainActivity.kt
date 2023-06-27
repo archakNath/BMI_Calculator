@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
     //declarations
     private lateinit var splashIntent: Intent
+    private lateinit var resultIntent: Intent
     private lateinit var editTextAge: EditText
     private lateinit var editTextWeight: EditText
     private lateinit var editTextHeight: EditText
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.i("MYLOG", "Main Activity started")
         //initialisations
+        resultIntent = Intent(this, ResultActivity::class.java)
         editTextAge = findViewById(R.id.editTextAge)
         editTextWeight = findViewById(R.id.editTextWeight)
         editTextHeight = findViewById(R.id.editTextHeight)
@@ -62,8 +64,12 @@ class MainActivity : AppCompatActivity() {
                 weight = editTextWeight.text.toString().toFloat()
                 height = editTextHeight.text.toString().toFloat() / 100
                 bmi = weight / (height * height)
+                resultIntent.putExtra("bmi", bmi)
+                startActivity(resultIntent)
             }
         }
+
+        //increment and decrement buttons
         buttonAgeDecrease.setOnClickListener {
             if (!TextUtils.isEmpty(editTextAge.text.toString()) && editTextAge.text.toString()
                     .toInt() > 0
