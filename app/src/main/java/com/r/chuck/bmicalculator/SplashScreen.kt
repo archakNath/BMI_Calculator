@@ -1,26 +1,30 @@
 package com.r.chuck.bmicalculator
 
 import android.app.Activity
-import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
-    //declarations
-    private lateinit var splashIntent: Intent
+
+class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        //splash screen
-        splashIntent = Intent(this, SplashScreen::class.java)
-        startActivity(splashIntent)
+        setContentView(R.layout.activity_splash_screen2)
 
-        // change status bar color to #ffffff(white)
+        //finish activity after 1.5 seconds ie. 1500ms
+        object : CountDownTimer(1500, 100) {
+            override fun onTick(millisUntilFinished: Long) {}
+
+            override fun onFinish() {
+                finish()
+            }
+        }.start()
+
+        //change color of status bar
         setStatusBarColor(Color.parseColor("#ffffff"))
     }
-
 
     // status bar color update functions
     fun Activity.setStatusBarColor(color:Int){
